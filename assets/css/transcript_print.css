@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
+
+:root {
+    /* Chuẩn kích thước A4 (210x297mm) và Lề (Margin) */
+    --a4-width: 210mm;
+    --a4-height: 297mm;
+    --margin-top: 25mm;
+    --margin-bottom: 25mm;
+    --margin-left: 35mm;
+    --margin-right: 20mm;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13pt; /* Chuẩn văn bản hành chính */
+    color: #000;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Nút điều khiển khi xem trên web */
+.print-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-print { background: #0d6efd; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;}
+.btn-close { background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;}
+
+/* Khung trang giấy A4 hiển thị trên màn hình */
+.a4-page {
+    width: var(--a4-width);
+    min-height: var(--a4-height);
+    padding: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left);
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* --- TRANG BÌA --- */
+.cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.header { text-align: center; font-weight: bold; margin-top: 20px;}
+.title-container { text-align: center; margin-top: 100px; margin-bottom: 100px;}
+.title-container h1 { font-size: 40pt; font-weight: bold; color: #0d6efd; letter-spacing: 2px;}
+.student-info { margin-left: auto; margin-right: auto; width: 75%; line-height: 2;}
+.fs-large { font-size: 14pt;}
+
+/* --- TRANG NỘI DUNG --- */
+.page-title { text-align: center; font-weight: bold; font-size: 16pt; margin-bottom: 20px;}
+.info-row { display: flex; width: 100%; line-height: 1.5; margin-bottom: 5px;}
+.info-col-7 { width: 60%; }
+.info-col-5 { width: 40%; }
+.info-col-12 { width: 100%; }
+
+.section { margin-top: 15px;}
+.section-title { font-weight: bold; text-transform: uppercase; font-size: 12pt; margin-bottom: 5px;}
+
+/* Bảng biểu */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.data-table th, .data-table td {
+    border: 1px solid #000;
+    padding: 4px 6px;
+    vertical-align: middle;
+}
+.data-table th {
+    text-align: center;
+    font-weight: bold;
+}
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.fw-bold { font-weight: bold; }
+.align-top { vertical-align: top; }
+
+/* Tổng hợp & Chữ ký */
+.summary-section { margin-top: 15px; line-height: 1.6; }
+.summary-section p { margin: 5px 0;}
+
+.signature-section { display: flex; justify-content: flex-end; margin-top: 30px; }
+.signature-box { text-align: center; width: 50%; }
+.date-italic { font-style: italic; margin-bottom: 5px;}
+.role-title { font-weight: bold; margin-bottom: 10px;}
+.teacher-name { font-weight: bold; text-transform: uppercase; margin-top: 10px;}
+
+.signature-img-wrapper { height: 80px; display: flex; align-items: center; justify-content: center;}
+.signature-img-wrapper img { max-height: 100%; max-width: 150px; }
+.unsigned-text { font-style: italic; color: #666; font-size: 11pt;}
+
+/* ==================== CẤU HÌNH MÁY IN (QUAN TRỌNG) ==================== */
+@media print {
+    /* Đặt lề in trực tiếp trên giấy */
+    @page {
+        size: A4 portrait;
+        margin: 25mm 20mm 25mm 35mm; /* Top Right Bottom Left (Tuân thủ chuẩn hành chính) */
+    }
+
+    body {
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .print-controls { display: none !important; }
+
+    /* Khi in, bỏ padding và shadow của thẻ div giả lập A4, vì lề giấy đã được @page xử lý */
+    .a4-page {
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always; /* Tách trang in */
+    }
+
+    /* Đảm bảo nền màu và font chữ màu đen, chống in bị mờ */
+    * {
+        color: #000 !important;
+        background-color: transparent !important;
+    }
+
+    /* Đảm bảo bảng không bị gãy dòng lung tung khi qua trang (Dù 1 trang HK2 thường không tràn) */
+    .data-table { page-break-inside: auto; }
+    .data-table tr { page-break-inside: avoid; page-break-after: auto; }
+    
+    /* Bắt trình duyệt in màu chữ xanh ở trang bìa nếu cần thiết */
+    .title-container h1 { color: #0d6efd !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+}

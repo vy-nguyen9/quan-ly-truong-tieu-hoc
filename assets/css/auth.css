@@ -1,0 +1,167 @@
+:root {
+    --navy-dark: #0A2647;
+    --navy-deep: #144272;
+    --navy-medium: #205295;
+    --navy-bright: #2C74B3;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--navy-dark);
+    margin: 0;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+.login-wrapper { 
+    max-width: 440px; 
+    width: 100%; 
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================================
+   THIẾT KẾ CARD ĐĂNG NHẬP (KÍNH MỜ - GLASSMORPHISM)
+========================================= */
+.login-card {
+    /* Nền trắng đục trong suốt 75% */
+    background: rgba(255, 255, 255, 0.75);
+    /* Hiệu ứng làm mờ cảnh nền phía sau 20px */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* Hỗ trợ Safari */
+    border-radius: 24px;
+    /* Viền trắng mờ tinh tế định hình khối */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Bóng đổ nhẹ để tách hộp ra khỏi nền */
+    box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.1) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Các quầng sáng trang trí trong box (Làm nhạt đi để không nhiễu hiệu ứng kính) */
+.login-card::before, .login-card::after {
+    content: ''; position: absolute; width: 160px; height: 160px; 
+    border-radius: 50%; filter: blur(30px); z-index: 0;
+}
+.login-card::before { top: -60px; right: -60px; background: rgba(44, 116, 179, 0.15); }
+.login-card::after { bottom: -60px; left: -60px; background: rgba(20, 66, 114, 0.1); }
+
+/* .logo-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(to top right, var(--navy-bright), var(--navy-medium));
+    color: white; border-radius: 16px; display: inline-flex;
+    align-items: center; justify-content: center; font-size: 28px;
+    box-shadow: 0 8px 15px -3px rgba(10, 38, 71, 0.2);
+} */
+
+/* =========================================
+   Ô NHẬP LIỆU (INPUT FIELDS)
+========================================= */
+.custom-input-wrap { position: relative; }
+/* Màu Icon xám sẫm / Xanh Navy để tăng độ tương phản trên nền sáng */
+.custom-input-wrap i.left-icon { position: absolute; top: 50%; transform: translateY(-50%); color: var(--navy-medium); font-size: 14px; left: 16px; }
+.custom-input-wrap .right-icon { position: absolute; top: 50%; transform: translateY(-50%); color: var(--navy-medium); font-size: 14px; right: 16px; cursor: pointer; transition: color 0.2s; background: transparent; border: none; padding: 0; }
+.custom-input-wrap .right-icon:hover { color: var(--navy-dark); }
+
+.custom-form-control {
+    width: 100%; padding: 12px 16px 12px 42px;
+    /* Nền trắng đục nhẹ hơn box một chút để phân lớp */
+    background-color: rgba(255, 255, 255, 0.6); 
+    /* Viền xanh nhạt tạo ranh giới rõ ràng */
+    border: 1px solid rgba(44, 116, 179, 0.3);
+    border-radius: 12px; font-size: 14px; color: #1E293B; font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.custom-form-control:focus { 
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-color: var(--navy-bright); 
+    box-shadow: 0 0 0 4px rgba(44, 116, 179, 0.15); 
+    outline: none; 
+}
+.custom-form-control::placeholder {
+    color: #64748B;
+}
+
+/* =========================================
+   NÚT ĐĂNG NHẬP (GIỮ MÀU XANH ĐẬM)
+========================================= */
+.btn-submit {
+    background: linear-gradient(to right, var(--navy-dark), var(--navy-medium));
+    color: white; border: none; padding: 14px; border-radius: 12px;
+    font-weight: 700; font-size: 15px; box-shadow: 0 10px 15px -3px rgba(10, 38, 71, 0.2); transition: all 0.3s ease;
+}
+.btn-submit:hover { background: linear-gradient(to right, var(--navy-deep), var(--navy-bright)); transform: translateY(-1px); box-shadow: 0 10px 15px -3px rgba(10, 38, 71, 0.3); color: white; }
+
+.form-check-input { background-color: rgba(255, 255, 255, 0.6); border-color: rgba(44, 116, 179, 0.3); }
+.form-check-input:checked { background-color: var(--navy-bright); border-color: var(--navy-bright); }
+
+
+/* =========================================
+   EDUPRIMARY - DONG SON SVN IMPORT 
+========================================= */
+.login-bg-art {
+    position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 45%, rgba(32, 82, 149, 0.3) 0%, transparent 65%);
+}
+
+.navy-glow { position: absolute; width: 420px; height: 420px; border-radius: 50%; filter: blur(90px); opacity: 0.17; will-change: transform; }
+.glow-one { top: -170px; left: -100px; background: #2c74b3; animation: navy-glow-one 18s ease-in-out infinite alternate; }
+.glow-two { right: -150px; bottom: -190px; background: #205295; animation: navy-glow-two 22s ease-in-out infinite alternate; }
+
+.dong-son-wrapper {
+    position: absolute;
+    width: min(100vw, 950px);
+    height: auto;
+    aspect-ratio: 1;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+    opacity: 0; 
+    animation: drum-fade-in 1.5s ease-in-out forwards;
+}
+
+.dong-son-wrapper svg {
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    filter: drop-shadow(0 0 4px rgba(252, 211, 77, 0.5)); 
+}
+
+.dong-son-wrapper svg path,
+.dong-son-wrapper svg circle,
+.dong-son-wrapper svg rect,
+.dong-son-wrapper svg polygon,
+.dong-son-wrapper svg polyline,
+.dong-son-wrapper svg line {
+    fill: none !important; 
+    stroke: #FCD34D !important; 
+    stroke-width: 0.25px !important; 
+    stroke-opacity: 0.85 !important; 
+}
+
+.dong-son-wrapper svg > g > path:first-child,
+.dong-son-wrapper svg circle:first-child {
+    stroke-width: 0.4px !important;
+}
+
+.login-bg-vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(3, 12, 25, 0.45) 100%);
+}
+
+/* --- KEYFRAMES --- */
+@keyframes drum-fade-in { from { opacity: 0; } to { opacity: 0.8; } }
+@keyframes dong-son-draw { to { stroke-dashoffset: 0; } }
+@keyframes dong-son-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes navy-glow-one { from { transform: translate(0, 0); } to { transform: translate(100px, 70px); } }
+@keyframes navy-glow-two { from { transform: translate(0, 0); } to { transform: translate(-100px, -70px); } }
+
+/* Responsive & Giảm chuyển động */
+@media (max-width: 576px) { .dong-son-wrapper { width: 145vw; max-width: none; } .navy-glow { opacity: 0.12; } }
+@media (prefers-reduced-motion: reduce) {
+    .navy-glow, .dong-son-wrapper svg, .dong-son-wrapper svg path, .dong-son-wrapper { animation: none !important; }
+    .dong-son-wrapper { opacity: 0.65; }
+    .dong-son-wrapper svg path, .dong-son-wrapper svg circle { stroke-dashoffset: 0 !important; }
+}

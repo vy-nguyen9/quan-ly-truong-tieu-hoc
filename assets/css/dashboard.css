@@ -1,0 +1,144 @@
+/* Table Thời khóa biểu Custom */
+.table-navy-custom th {
+    background-color: var(--navy-medium) !important;
+    color: white !important;
+    border-color: var(--navy-deep) !important;
+    font-size: 0.85rem;
+    padding: 12px;
+}
+
+/* Các Widget Thống kê */
+.widget-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.widget-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+.widget-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Lưới Lịch Calendar (Góc trên phải) */
+.calendar-wrapper { padding: 5px; }
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+.cal-day { font-size: 0.8rem; padding: 5px 0; }
+.cal-date {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    font-weight: 500;
+}
+.cal-date:hover { 
+    background-color: rgba(44, 116, 179, 0.1); 
+    color: var(--navy-bright);
+}
+.cal-date.active {
+    background-color: var(--navy-bright);
+    color: white !important;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(44, 116, 179, 0.3);
+}
+.cal-date.muted { color: #cbd5e1; opacity: 0.5; }
+
+/* Bảng Thông báo (Góc dưới phải) */
+.custom-list-group .list-group-item {
+    transition: background 0.2s ease;
+    background: transparent;
+}
+.custom-list-group .list-group-item:hover {
+    background-color: rgba(44, 116, 179, 0.05);
+}
+.unread-item {
+    background-color: rgba(44, 116, 179, 0.03) !important;
+    border-left: 3px solid var(--navy-bright) !important;
+}
+
+/* ==================== DARK MODE ==================== */
+
+/* Màu nền tổng thể trang */
+[data-bs-theme="dark"] .bg-slate-50 { 
+    background-color: #051426 !important; /* Xanh Navy sâu nhất */
+}
+
+/* Màu các Card chứa nội dung */
+[data-bs-theme="dark"] .main-card { 
+    background-color: #0A2647 !important; /* Navy cấp 2 */
+    border: 1px solid #144272 !important; 
+}
+[data-bs-theme="dark"] .main-card .card-header {
+    background-color: #0A2647 !important;
+    border-bottom: 1px solid #144272 !important;
+}
+
+/* Chỉnh màu tiêu đề */
+[data-bs-theme="dark"] .text-navy-dark { color: #f8fafc !important; }
+[data-bs-theme="dark"] .text-navy-bright { color: #38bdf8 !important; }
+
+/* Bảng Thời Khóa Biểu */
+[data-bs-theme="dark"] .table-navy-custom th { 
+    background-color: #144272 !important; 
+    border-color: #0A2647 !important; 
+}
+[data-bs-theme="dark"] .dashboard-table tbody { 
+    background-color: #0A2647 !important; 
+    color: #cbd5e1; 
+}
+[data-bs-theme="dark"] .dashboard-table td {
+    border-color: #144272 !important;
+}
+
+/* Widget Icon */
+[data-bs-theme="dark"] .widget-icon.bg-navy-bright { 
+    background-color: #144272 !important; 
+    color: #38bdf8 !important;
+}
+[data-bs-theme="dark"] .widget-icon.bg-success {
+    background-color: #064e3b !important;
+    color: #34d399 !important;
+}
+
+/* Calendar */
+[data-bs-theme="dark"] .cal-date { color: #e2e8f0; }
+[data-bs-theme="dark"] .cal-date.muted { color: #475569; }
+[data-bs-theme="dark"] .cal-date:hover { 
+    background-color: rgba(56, 189, 248, 0.2); 
+    color: #38bdf8; 
+}
+[data-bs-theme="dark"] .cal-date.active {
+    background-color: #2C74B3 !important;
+}
+[data-bs-theme="dark"] .calendar-wrapper button {
+    background-color: #144272;
+    color: #f8fafc;
+    border-color: #144272;
+}
+[data-bs-theme="dark"] .calendar-grid {
+    border-color: #144272 !important;
+}
+
+/* Thông Báo */
+[data-bs-theme="dark"] .custom-list-group .list-group-item {
+    border-bottom: 1px solid #144272 !important;
+}
+[data-bs-theme="dark"] .custom-list-group .list-group-item:hover { 
+    background-color: #144272; 
+}
+[data-bs-theme="dark"] .unread-item {
+    background-color: #144272 !important;
+    border-left: 3px solid #38bdf8 !important;
+}

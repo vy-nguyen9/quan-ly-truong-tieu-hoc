@@ -1,0 +1,56 @@
+/* Tùy chỉnh Bảng Kết Quả */
+.custom-result-table th, .custom-result-table td {
+    vertical-align: middle !important;
+    border-color: #e2e8f0;
+}
+.table-navy-custom th {
+    background-color: var(--navy-medium) !important;
+    color: white !important;
+    border-color: var(--navy-deep) !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Các cell điểm, nhận xét */
+.text-primary { color: var(--navy-bright) !important; }
+.text-danger { color: #e11d48 !important; font-size: 1.1rem;}
+
+/* ==================== DARK MODE ==================== */
+[data-bs-theme="dark"] .bg-slate-50 { background-color: #051426 !important; }
+[data-bs-theme="dark"] .main-card { 
+    background-color: #0A2647 !important; 
+    border: 1px solid #144272 !important; 
+}
+[data-bs-theme="dark"] .main-card .card-header {
+    background-color: #0A2647 !important;
+    border-bottom: 1px solid #144272 !important;
+}
+
+[data-bs-theme="dark"] .text-navy-dark { color: #f8fafc !important; }
+[data-bs-theme="dark"] .text-navy-bright { color: #38bdf8 !important; }
+
+/* Bảng trong Dark Mode */
+[data-bs-theme="dark"] .custom-result-table th { 
+    background-color: #144272 !important; 
+    border-color: #0A2647 !important; 
+}
+[data-bs-theme="dark"] .custom-result-table td { border-color: #144272 !important; }
+[data-bs-theme="dark"] .custom-result-table tbody { background-color: #0A2647 !important; color: #cbd5e1; }
+
+[data-bs-theme="dark"] .text-primary { color: #38bdf8 !important; }
+[data-bs-theme="dark"] .text-danger { color: #fb7185 !important; }
+
+/* Khối tổng kết cuối năm (Summary Card) */
+[data-bs-theme="dark"] .summary-card .bg-light {
+    background-color: #071b33 !important;
+    border-color: #1e293b !important;
+}
+[data-bs-theme="dark"] .text-success { color: #34d399 !important; }
+
+/* Dropdown Chọn Năm */
+[data-bs-theme="dark"] .bg-white.shadow-sm {
+    background-color: #071b33 !important;
+    border-color: #1e293b !important;
+}
+[data-bs-theme="dark"] #yearSelector { color: #f8fafc !important; }
+[data-bs-theme="dark"] #yearSelector option { background-color: #0f172a; color: #fff;}

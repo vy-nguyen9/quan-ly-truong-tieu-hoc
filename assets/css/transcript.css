@@ -1,0 +1,66 @@
+/* Giao diện nút trạng thái Học bạ */
+.status-badge { 
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+}
+.status-chua-chot { 
+    background-color: #fef3c7; 
+    color: #d97706; 
+    border: 1px solid #fcd34d;
+}
+.status-da-chot { 
+    background-color: #d1fae5; 
+    color: var(--navy-bright); 
+    border: 1px solid var(--navy-bright);
+}
+
+.table-navy-custom th {
+    background-color: var(--navy-medium) !important;
+    color: white !important;
+    border-color: var(--navy-deep) !important;
+    font-size: 0.85rem;
+    padding: 12px;
+}
+
+.student-name {
+    color: var(--text-color) !important;
+}
+
+/* Ép buộc nút navy-bright phải có chữ màu trắng */
+.btn-navy-bright {
+    background-color: var(--navy-bright) !important;
+    border-color: var(--navy-bright) !important;
+    color: white !important;
+}
+.btn-navy-bright:hover {
+    background-color: var(--navy-medium) !important;
+    border-color: var(--navy-medium) !important;
+    color: white !important;
+}
+
+/* Các badge đồng bộ màu navy */
+.bg-navy-bright { background-color: var(--navy-bright) !important; color: white !important; }
+.text-navy-bright { color: var(--navy-bright) !important; }
+.border-navy-bright { border-color: var(--navy-bright) !important; }
+
+/* ==================== DARK MODE ==================== */
+[data-bs-theme="dark"] .status-chua-chot {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #fcd34d;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+[data-bs-theme="dark"] .status-da-chot {
+    background-color: rgba(44, 116, 179, 0.15);
+    color: var(--navy-bright);
+    border-color: rgba(44, 116, 179, 0.3);
+}
+[data-bs-theme="dark"] .table-navy-custom th { 
+    background-color: #144272 !important; 
+    border-color: #0a2647 !important; 
+}
+[data-bs-theme="dark"] #hocBaListBody { 
+    background-color: transparent !important; 
+    color: #f8fafc; 
+}

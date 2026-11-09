@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --navy-dark: #0A2647;
+    --navy-deep: #144272;
+    --navy-medium: #205295;
+    --navy-bright: #2C74B3;
+    
+    /* Giao diện Sáng (Light Mode) */
+    --bg-light: #f4f7fb;
+    --text-color: #334155;
+}
+
+/* ---------------------------------------------------
+   DARK MODE - KHỬ MÀU XÁM, ÉP SANG TONE XANH NAVY
+--------------------------------------------------- */
+[data-bs-theme="dark"] {
+    /* FIX CỰC KỲ QUAN TRỌNG: Đổi biến nền và chữ chính */
+    --bg-light: #051426; 
+    --text-color: #e2e8f0;
+
+    /* Ghi đè biến Bootstrap */
+    --bs-body-bg: #051426; 
+    --bs-body-color: #e2e8f0;
+    --bs-tertiary-bg: #0A2647;
+    --bs-border-color: #144272;
+    
+    /* Cấu hình Form Input */
+    --bs-form-control-bg: #071b33;
+    --bs-form-control-color: #f8fafc;
+    --bs-form-control-border-color: #144272;
+    --bs-form-control-focus-border-color: #2C74B3;
+
+    /* Cấu hình Dropdown */
+    --bs-dropdown-bg: #0A2647;
+    --bs-dropdown-link-color: #e2e8f0;
+    --bs-dropdown-link-hover-bg: #144272;
+    --bs-dropdown-link-hover-color: #ffffff;
+    --bs-dropdown-border-color: #144272;
+
+    /* Màu chữ */
+    --bs-heading-color: #ffffff;
+    --bs-secondary-color: #94a3b8;
+}
+
+/* Ép màu nền cho các class của Bootstrap ở Dark Mode để tránh lỗi RGB */
+[data-bs-theme="dark"] body, 
+[data-bs-theme="dark"] .bg-body { 
+    background-color: #051426 !important; 
+}
+[data-bs-theme="dark"] .bg-body-tertiary { 
+    background-color: #0A2647 !important; 
+}
+
+/* Đảm bảo Card luôn nhận màu Navy ở Dark Mode */
+[data-bs-theme="dark"] .card {
+    background-color: #0A2647 !important;
+    border-color: var(--bs-border-color) !important;
+}
+
+/* Fix lỗi mờ chữ */
+[data-bs-theme="dark"] .text-muted { color: #94a3b8 !important; }
+[data-bs-theme="dark"] .text-body-emphasis { color: #ffffff !important; }
+[data-bs-theme="dark"] .form-control::placeholder { color: #64748b; opacity: 1; }
+
+/* Khung Search Box đổi màu khi Dark Mode */
+[data-bs-theme="dark"] .search-box-header {
+    background-color: #071b33 !important;
+}
+
+/* ---------------------------------------------------
+   CÁC STYLE CHUNG CHO CẢ 2 CHẾ ĐỘ
+--------------------------------------------------- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+
+.bg-navy-dark { background-color: var(--navy-dark) !important; color: white; }
+.bg-navy-deep { background-color: var(--navy-deep) !important; color: white; }
+.bg-navy-medium { background-color: var(--navy-medium) !important; color: white; }
+.bg-navy-bright { background-color: var(--navy-bright) !important; color: white; }
+.text-navy-dark { color: var(--navy-dark) !important; }
+.text-navy-bright { color: var(--navy-bright) !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(44, 116, 179, 0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(44, 116, 179, 0.7); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Sidebar Layout */
+.wrapper { display: flex; height: 100vh; overflow: hidden; }
+.sidebar {
+    width: 260px;
+    background-color: var(--navy-dark);
+    transition: all 0.3s;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Đường line phân cách Sidebar và Content ở Dark Mode */
+[data-bs-theme="dark"] .sidebar { border-right: 1px solid var(--navy-deep); }
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Sidebar Nav Items */
+.sidebar .nav-link {
+    color: #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+}
+.sidebar .nav-link:hover, .sidebar .nav-link[aria-expanded="true"] {
+    background-color: rgba(20, 66, 114, 0.6); 
+    color: white;
+}
+.sidebar .nav-link.active {
+    background-color: var(--navy-medium);
+    color: white;
+    font-weight: 600;
+}
+.sidebar .nav-link i { width: 20px; text-align: center; }
+.sidebar .nav-link.active i { color: white; }
+
+.submenu .nav-link { font-size: 0.875rem; padding: 8px 15px 8px 45px; color: #94a3b8; }
+.submenu .nav-link:hover { background: none; color: white; }
+
+@media (max-width: 991.98px) {
+    .sidebar { margin-left: -260px; position: fixed; height: 100%; }
+    .sidebar.show { margin-left: 0; box-shadow: 5px 0 15px rgba(0,0,0,0.2); }
+}
+
+.btn-navy-bright {
+        background-color: var(--navy-bright) !important;
+        border-color: var(--navy-bright) !important;
+    }
+    .btn-navy-bright:hover {
+        background-color: var(--navy-medium) !important;
+        border-color: var(--navy-medium) !important;
+    }

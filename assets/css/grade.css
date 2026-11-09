@@ -1,0 +1,214 @@
+/* ==================== STEPPER (HOÀN THIỆN THEO MẪU) ==================== */
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    padding: 10px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stepper-item {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Vẽ đường nối chạy từ tâm của stepper-item này sang stepper-item kế tiếp */
+.stepper-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 28px; /* = 50% chiều cao của hình tròn (56px) */
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: #cbd5e1;
+    z-index: -1; /* Ép đường gạch lùi xuống dưới hình tròn */
+}
+
+.stepper-item.active { opacity: 1; }
+.stepper-item.locked { cursor: not-allowed; opacity: 0.4; }
+
+.step-counter {
+    width: 56px; /* Hình tròn to hơn */
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffffff; /* Nền đặc để che đi đường gạch ở bên dưới */
+    border: 2px solid #cbd5e1;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3; /* Nổi bật lên trên đường nối */
+}
+
+.stepper-item.active .step-counter {
+    border-color: var(--navy-bright);
+    color: var(--navy-bright);
+    box-shadow: 0 0 0 5px rgba(44, 116, 179, 0.15);
+    font-weight: 700;
+}
+
+.step-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 5px;
+}
+.stepper-item.active .step-name { color: var(--navy-dark); }
+
+
+/* ==================== TABS & PILLS ==================== */
+.custom-pill { border-color: #cbd5e1; color: #475569; }
+.btn-check:checked + .custom-pill {
+    background-color: var(--navy-medium);
+    border-color: var(--navy-medium);
+    color: white;
+}
+
+.custom-tabs { border-bottom: 2px solid #e2e8f0; }
+.custom-tabs .nav-link {
+    color: #64748b;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 15px 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.custom-tabs .nav-link.active {
+    color: var(--navy-bright);
+    border-bottom-color: var(--navy-bright);
+    background: transparent;
+    font-weight: bold;
+}
+
+/* ==================== BẢNG & INPUT ==================== */
+.table-navy-custom th {
+    background-color: var(--navy-medium) !important;
+    color: white !important;
+    border-color: var(--navy-deep) !important;
+    font-size: 0.85rem;
+    padding: 12px;
+}
+
+.custom-grade-table input[type="text"],
+.custom-grade-table input[type="number"] {
+    border: 1px solid #cbd5e1;
+    text-align: center;
+    padding: 6px 14px 6px 18px;
+    width: 100%;
+    max-width: 65px;
+    margin: 0 auto;
+    border-radius: 6px;
+    outline: none;
+    background: #ffffff;
+    transition: all 0.2s ease;
+    color: var(--text-color); 
+    font-weight: bold;
+}
+
+.custom-grade-table input:focus {
+    border-color: var(--navy-bright) !important;
+    box-shadow: 0 0 0 3px rgba(44, 116, 179, 0.15) !important;
+    background: #f8fafc;
+    color: #0f172a !important; 
+}
+
+.custom-select-grade::-webkit-calendar-picker-indicator {
+    opacity: 0.5;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 2px;
+}
+.custom-select-grade::-webkit-calendar-picker-indicator:hover {
+    opacity: 0.8;
+}
+
+.custom-grade-table .input-nx {
+    text-align: left;
+    min-width: 150px;
+    max-width: 100%;
+    font-weight: normal;
+    padding: 6px 12px;
+}
+
+.student-name {
+    color: var(--text-color) !important;
+}
+.grade-text-color {
+    color: var(--text-color) !important;
+}
+
+.custom-alert-info {
+    background-color: rgba(32, 82, 149, 0.05);
+    border-bottom: 1px solid rgba(32, 82, 149, 0.15);
+    color: var(--navy-dark);
+}
+
+
+/* ---------------------------------------------------
+   DARK MODE
+--------------------------------------------------- */
+[data-bs-theme="dark"] .bg-slate-50 { background-color: var(--bg-light) !important; }
+[data-bs-theme="dark"] h4.text-navy-dark, [data-bs-theme="dark"] h6.text-navy-dark { color: #ffffff !important; }
+[data-bs-theme="dark"] .main-card { background-color: var(--bs-tertiary-bg) !important; border: 1px solid var(--bs-border-color) !important; }
+[data-bs-theme="dark"] .main-card .card-header { background-color: #071b33 !important; border-bottom-color: var(--bs-border-color) !important; }
+
+[data-bs-theme="dark"] .main-card .bg-white { background-color: transparent !important; }
+[data-bs-theme="dark"] .btn.bg-white { background-color: #071b33 !important; color: #e2e8f0 !important; border-color: var(--bs-border-color) !important; }
+[data-bs-theme="dark"] .btn.bg-white:hover { background-color: #0f172a !important; border-color: var(--navy-bright) !important; }
+
+[data-bs-theme="dark"] .custom-input.bg-light { background-color: #071b33 !important; color: #f8fafc !important; border-color: var(--bs-border-color) !important; }
+[data-bs-theme="dark"] .custom-input.bg-light:focus { border-color: var(--navy-bright) !important; }
+
+[data-bs-theme="dark"] .custom-tabs { border-bottom-color: var(--bs-border-color) !important; }
+[data-bs-theme="dark"] .custom-tabs .nav-link { color: #94a3b8 !important; }
+[data-bs-theme="dark"] .custom-tabs .nav-link:hover { color: #e2e8f0 !important; }
+[data-bs-theme="dark"] .custom-tabs .nav-link.active { color: var(--navy-bright) !important; border-bottom-color: var(--navy-bright) !important; background-color: transparent !important; }
+
+/* Stepper Dark Mode - Ép màu nền để che đường gạch nối */
+[data-bs-theme="dark"] .step-counter { background-color: #071b33; border-color: #334155; color: #94a3b8; }
+[data-bs-theme="dark"] .step-name { color: #94a3b8; }
+[data-bs-theme="dark"] .stepper-item.active .step-counter { border-color: #38bdf8; color: #38bdf8; box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.15); }
+[data-bs-theme="dark"] .stepper-item.active .step-name { color: #f8fafc; }
+[data-bs-theme="dark"] .stepper-item:not(:last-child)::after { background-color: #334155; }
+
+/* Bảng điểm Dark Mode */
+[data-bs-theme="dark"] .custom-grade-table tbody, [data-bs-theme="dark"] #gradeListBody { background-color: transparent !important; color: #f8fafc; }
+[data-bs-theme="dark"] .table-navy-custom th { background-color: #144272 !important; border-color: #0a2647 !important; }
+
+[data-bs-theme="dark"] .custom-alert-info { 
+    background-color: rgba(44, 116, 179, 0.15) !important; 
+    color: #93c5fd !important; 
+    border-color: rgba(44, 116, 179, 0.3) !important;
+}
+
+[data-bs-theme="dark"] .custom-grade-table input { 
+    background-color: #0f172a !important; 
+    border-color: #334155 !important;
+    color: #f8fafc !important; 
+}
+[data-bs-theme="dark"] .custom-grade-table input:focus {
+    background-color: #051426 !important; 
+    border-color: var(--navy-bright) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 0 0 3px rgba(44, 116, 179, 0.3) !important;
+}
+[data-bs-theme="dark"] .custom-select-grade::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.7;
+}

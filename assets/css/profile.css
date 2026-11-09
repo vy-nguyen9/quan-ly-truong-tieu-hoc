@@ -1,0 +1,77 @@
+.custom-input {
+    border-color: #cbd5e1;
+    color: var(--text-color);
+    background-color: transparent;
+}
+.custom-input:focus {
+    border-color: var(--navy-bright);
+    box-shadow: 0 0 0 0.2rem rgba(44, 116, 179, 0.25);
+    background-color: #f8fafc;
+}
+
+/* ẢNH ĐẠI DIỆN */
+.avatar-preview-box {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #cbd5e1;
+}
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.avatar-placeholder {
+    font-size: 3rem;
+    color: #94a3b8;
+}
+
+/* CHỮ KÝ */
+.signature-preview-box {
+    min-height: 100px;
+    background-color: #f8fafc;
+    border-color: #e2e8f0 !important;
+}
+.signature-img {
+    max-height: 90px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.btn-navy-bright {
+    background-color: var(--navy-bright) !important;
+    border-color: var(--navy-bright) !important;
+    color: white !important;
+}
+.btn-navy-bright:hover {
+    background-color: var(--navy-medium) !important;
+    border-color: var(--navy-medium) !important;
+    color: white !important;
+}
+
+/* DARK MODE */
+[data-bs-theme="dark"] .bg-slate-50 { background-color: var(--bg-light) !important; }
+[data-bs-theme="dark"] .main-card { 
+    background-color: var(--bs-tertiary-bg) !important; 
+    border: 1px solid var(--bs-border-color) !important; 
+}
+[data-bs-theme="dark"] .text-navy-dark,
+[data-bs-theme="dark"] .section-title { color: #38bdf8 !important; }
+
+[data-bs-theme="dark"] .custom-input {
+    background-color: #071b33 !important;
+    color: #f8fafc !important;
+    border-color: #1e293b !important;
+}
+[data-bs-theme="dark"] .custom-input:focus {
+    background-color: #0f172a !important;
+    border-color: var(--navy-bright) !important;
+}
+[data-bs-theme="dark"] .avatar-preview-box { border-color: #334155; background-color: #1e293b;}
+[data-bs-theme="dark"] .signature-preview-box { background-color: #1e293b !important; border-color: #334155 !important; }
+[data-bs-theme="dark"] .signature-img { filter: drop-shadow(0 0 2px rgba(255,255,255,0.8)); }

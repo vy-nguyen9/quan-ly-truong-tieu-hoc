@@ -1,0 +1,1 @@
+window.fontVuTimes = "AAEAAAAOAIAAAwBgT1MvMk8QO4AAAADwAAAAYGNtYXABDQHfAAABQAAAAGJjdnQgAAMAAAAAAgAAAAI... (Tùy chọn: Thêm mã chuỗi ttf base64 tại đây nếu dự án yêu cầu xuất trực tiếp Unicode PDF offline)";
